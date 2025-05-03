@@ -30,7 +30,7 @@ function App() {
         
       })
 
-    setact([...act, {name:enteredvalue}])
+    //setact([...act, {name:enteredvalue}])
     setevalue("")
   }
 
