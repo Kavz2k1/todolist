@@ -2,7 +2,6 @@
 import { useState,useEffect } from "react";
 import axios from "axios";
 import "./App.css"
-const backendUrl = "http://<your-local-ip>:5000";  // Use your local IP
 
 function App() {
  //to store the enter avalue
