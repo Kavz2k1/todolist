@@ -4,16 +4,31 @@ const cors = require("cors");
 const mongoose = require("mongoose")
 
 const app = express();
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://todolist-fgne.vercel.app", "http://localhost:3000"],
+        methods: ["GET", "POST", "DELETE"],
+      }
+));
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/todo").then(()=>
-console.log("DB sucess"))
-.catch(()=>console.log("DB failed"))
+// mongoose.connect("mongodb://127.0.0.1:27017/todo").then(()=>
+// console.log("DB sucess"))
+// .catch(()=>console.log("DB failed"))
+
+require("dotenv").config();
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("DB connected"))
+  .catch(err => console.log("DB connection failed", err));
+
 //to connect with connection create model
 const Activity = mongoose.model("Activity",{name:String}, "act")
 
 // const act = ["Wake up at 4", "Take a shower"];
+app.get("/", (req, res) => {
+    res.send("To-Do List Backend is running.");
+  });
 
     app.get("/actlist", (req, res) => {
         console.log("GET /actlist called")
