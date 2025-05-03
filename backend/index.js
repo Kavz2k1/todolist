@@ -27,7 +27,7 @@ const Activity = mongoose.model("Activity",{name:String}, "act")
 
 // const act = ["Wake up at 4", "Take a shower"];
 app.get("/", (req, res) => {
-    res.send("To-Do List Backend is running.");
+    res.send("To-Do List Backend running in Backend.");
   });
 
     app.get("/actlist", (req, res) => {
