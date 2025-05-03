@@ -1,30 +1,15 @@
 
 const express = require("express");
-
-require("dotenv").config();
+const cors = require("cors");
 const mongoose = require("mongoose")
 
 const app = express();
-const cors = require("cors");
-
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("DB connected"))
-  .catch(err => console.log("Error connecting to DB:", err));
-
-
-app.use(cors({
- origin: "https://todolist-fgne.vercel.app",
-methods: ["POST", "GET", "DELETE"], 
-credentials: true
-}));
-
+app.use(cors());
 app.use(express.json());
 
-// mongoose.connect("mongodb+srv://rajkaviya121:rajkaviya2@cluster0.v7anyu3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=>
-// console.log("DB sucess"))
-// .catch(()=>console.log("DB failed"))
-
-
+mongoose.connect("mongodb://127.0.0.1:27017/todo").then(()=>
+console.log("DB sucess"))
+.catch(()=>console.log("DB failed"))
 //to connect with connection create model
 const Activity = mongoose.model("Activity",{name:String}, "act")
 
