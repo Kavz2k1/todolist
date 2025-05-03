@@ -52,7 +52,7 @@ app.delete("/deleteact/:id", function(req, res) {
     })
     .catch(err => {
 console.error("Delete error:", err);
-    res.status(500).send("Error deleting activity");
+    res.status(500).send("Error deleting activity is activated");
      });
     });
     
