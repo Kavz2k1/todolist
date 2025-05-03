@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use(cors({
  origin: ["https://deploy-mern-1whq.vercel.app"],
-methods: ["POST", "GET"],
+methods: ["POST", "GET", "DELETE"], 
 credentials: true
 }));
 
