@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 app.use(cors({
- origin: ["https://todolist-fgne.vercel.app/"],
+ origin: "https://todolist-fgne.vercel.app",
 methods: ["POST", "GET", "DELETE"], 
 credentials: true
 }));
