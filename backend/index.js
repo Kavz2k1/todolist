@@ -4,10 +4,17 @@ const cors = require("cors");
 const mongoose = require("mongoose")
 
 const app = express();
-app.use(cors());
+const cors = require("cors");
+
+app.use(cors({
+ origin: ["https://deploy-mern-1whq.vercel.app"],
+methods: ["POST", "GET"],
+credentials: true
+}));
+
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/todo").then(()=>
+mongoose.connect("mongodb+srv://rajkaviya121:rajkaviya2@cluster0.v7anyu3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=>
 console.log("DB sucess"))
 .catch(()=>console.log("DB failed"))
 //to connect with connection create model
