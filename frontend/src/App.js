@@ -9,7 +9,7 @@ function App() {
   const [act,setact]=useState([])
 
   useEffect(()=>{
-    axios.get("http://localhost:5000/actlist")
+    axios.get("https://todolist-li3v.onrender.com/actlist")
     .then(function(response){
       console.log(response.data)
       setact(response.data)
@@ -24,7 +24,7 @@ function App() {
   function add()
   {
    
-      axios.post("http://localhost:5000/addact",{newact:enteredvalue})
+      axios.post("https://todolist-li3v.onrender.com/addact",{newact:enteredvalue})
       .then(function(response){
         setact(response.data)
         
@@ -35,7 +35,7 @@ function App() {
   }
 
   function deleteAct(id) {
-     axios.delete(`http://localhost:5000/deleteact/${id}`)
+     axios.delete(`https://todolist-li3v.onrender.com/deleteact/${id}`)
     .then(function(response) {
     setact(response.data); // Update state with latest list
     })
